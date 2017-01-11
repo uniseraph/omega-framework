@@ -43,3 +43,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 .sass-cache
+
+*/target
+.DS_Store

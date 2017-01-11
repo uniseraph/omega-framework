@@ -20,6 +20,14 @@
     <fileSets>
 
         <fileSet>
+            <directory>../config-repo</directory>
+            <outputDirectory>config-repo</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>../bin</directory>
+            <outputDirectory>bin</outputDirectory>
+        </fileSet>
+        <fileSet>
             <directory>../etc</directory>
             <outputDirectory>etc</outputDirectory>
          </fileSet>
