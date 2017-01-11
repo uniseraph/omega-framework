@@ -1,0 +1,24 @@
+server:
+  port: 9411
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+default:
+  ribbon:
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 2
+    OkToRetryOnAllOperations: true // All operations should be idempotent
+
+logging:
+  path: /var/log
+  level:
+    root: WARN
+    com:
+      ongo360:
+        demo: DEBUG

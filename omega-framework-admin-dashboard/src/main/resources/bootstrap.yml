@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: omega-framework-admin-dashboard
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: omega-framework-configserver
+      profile: dev
+      label: master
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

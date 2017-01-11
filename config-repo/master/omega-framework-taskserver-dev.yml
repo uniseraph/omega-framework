@@ -1,0 +1,49 @@
+server:
+  port: 8085
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ongo360
+    password: ongo360
+    virtual-host: ongo360_vhost
+
+mycat:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mycat/sk_dev?useOldAliasMetadataBehavior=true
+    username: mycat
+    password: mycat
+  servers: localhost:8066
+
+task:
+  scheduler:
+    loadInterval: 1
+  lockPath: /task
+
+zookeeper:
+  servers: 127.0.0.1:2181
+  sessionTimeout: 30000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+default:
+  ribbon:
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 2
+    OkToRetryOnAllOperations: true // All operations should be idempotent
+
+logging:
+  path: /var/log
+  level:
+    root: WARN
+    com:
+      ongo360:
+        demo: DEBUG

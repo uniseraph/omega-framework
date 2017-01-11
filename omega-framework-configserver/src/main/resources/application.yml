@@ -1,0 +1,32 @@
+server:
+  port: 8887
+
+spring:
+  application:
+    name: omega-framework-configserver
+  profiles:
+    active: native #配置文件的profile，要跟配置文件当前使用的profile相符
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ongo360
+    password: ongo360
+    virtual-host: ongo360_vhost
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:${user.dir}/config-repo
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  path: /var/log
+  level:
+    root: WARN
+    com:
+      ongo360:
+        demo: DEBUG
