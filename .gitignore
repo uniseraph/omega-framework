@@ -29,6 +29,8 @@
 # IntelliJ
 /out/
 omega-framework.ipr
+omega-framework.iml
+omega-framework.iws
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
