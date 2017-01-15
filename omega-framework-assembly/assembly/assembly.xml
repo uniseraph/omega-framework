@@ -36,7 +36,14 @@
         <file>
             <source>../README.md</source>
             <outputDirectory>/</outputDirectory>
-
+        </file>
+        <file>
+            <source>omega-framework-datasource/pom.xml</source>
+            <outputDirectory>etc/omega-framework-datasource.pom</outputDirectory>
+        </file>
+        <file>
+            <source>omega-framework-task-common/pom.xml</source>
+            <outputDirectory>etc/omega-framework-task-common.pom</outputDirectory>
         </file>
     </files>
 </assembly>
