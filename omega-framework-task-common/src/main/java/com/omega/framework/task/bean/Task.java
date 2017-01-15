@@ -12,20 +12,19 @@ public class Task {
     public String id;
     public String type;
     public Date triggerTime;
-    public Map<String ,String> dataMap = new HashMap<String,String>();
+    public Map<String ,String> dataMap = new HashMap<>();
 
     public Task() {
 
     }
 
-    public Task(String id, String type, Date triggerTime) {
-        this.id = id;
+    public Task(String type, Date triggerTime) {
         this.type = type;
         this.triggerTime = triggerTime;
     }
 
-    public Task(String id, String type) {
-        this(id, type, null);
+    public Task(String type) {
+        this(type, null);
     }
 
     public Task data(String key, String value) {
@@ -50,4 +49,5 @@ public class Task {
 
         return ((Task) obj).id.equals(id);
     }
+
 }

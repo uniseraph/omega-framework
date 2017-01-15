@@ -14,7 +14,6 @@
     <name>omega-framework-taskserver</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <start-class>com.omega.framework.application.TaskServerApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
