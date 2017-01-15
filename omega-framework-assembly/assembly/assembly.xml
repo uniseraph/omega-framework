@@ -19,10 +19,10 @@
 
     <fileSets>
 
-        <fileSet>
+        <!--fileSet>
             <directory>../config-repo</directory>
             <outputDirectory>config-repo</outputDirectory>
-        </fileSet>
+        </fileSet-->
         <fileSet>
             <directory>../bin</directory>
             <outputDirectory>/</outputDirectory>
