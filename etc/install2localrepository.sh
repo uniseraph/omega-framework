@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+mkdir  -p ~/.m2/repository/com/omega/framework/omega-framework/0.1
+
+cp omega-framework/pom.xml ~/.m2/repository/com/omega/framework/omega-framework/0.1/omega-framework-0.1.pom
 
 mvn install:install-file -DgroupId=com.omega.framework -DartifactId=omega-framework-datasource -Dversion=0.1 \
   -Dfile=../lib/omega-framework-datasource-0.1.jar  -DgeneratePom=true -Dpackaging=jar
