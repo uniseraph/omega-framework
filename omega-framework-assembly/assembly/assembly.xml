@@ -38,12 +38,12 @@
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
-            <source>omega-framework-datasource/pom.xml</source>
-            <outputDirectory>etc/omega-framework-datasource.pom</outputDirectory>
+            <source>../omega-framework-datasource/pom.xml</source>
+            <outputDirectory>etc/omega-framework-datasource</outputDirectory>
         </file>
         <file>
-            <source>omega-framework-task-common/pom.xml</source>
-            <outputDirectory>etc/omega-framework-task-common.pom</outputDirectory>
+            <source>../omega-framework-task-common/pom.xml</source>
+            <outputDirectory>etc/omega-framework-task-common</outputDirectory>
         </file>
     </files>
 </assembly>
