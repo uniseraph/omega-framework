@@ -15,6 +15,8 @@ mycat:
     url: jdbc:mysql://mycat/sk_dev?useOldAliasMetadataBehavior=true
     username: mycat
     password: mycat
+    tomcat:
+      testOnBorrow: true
   servers: localhost:8066
 
 task:
