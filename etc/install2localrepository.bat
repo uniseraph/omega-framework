@@ -1,4 +1,6 @@
 
+md "%USERPROFILE%\.m2\repository\com\omega\framework\omega-framework\0.1"
+
 copy /y  omega-framework\pom.xml "%USERPROFILE%\.m2\repository\com\omega\framework\omega-framework\0.1\omega-framework-0.1.pom"
 
 
