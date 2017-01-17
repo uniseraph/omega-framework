@@ -118,10 +118,14 @@ public class AsyncTaskScheduler {
         String startId = "0";
         List<Map<String, Object>> taskList;
         do {
+//            taskList = jdbcTemplate.queryForList("select * from " + taskTableName +
+//                            " where triggerTime<? and id>? " +
+//                            " order by id " +
+//                            " limit 100", new Object[] { triggerTime, startId });
+
+            // 为了兼容MySQL与Oracle，不分页了
             taskList = jdbcTemplate.queryForList("select * from " + taskTableName +
-                            " where triggerTime<? and id>? " +
-                            " order by id " +
-                            " limit 100", new Object[] { triggerTime, startId });
+                    " where triggerTime<? and id>?", new Object[] { triggerTime, startId });
 
             ObjectMapper mapper = new ObjectMapper();
             for (Map<String, Object> m : taskList) {
@@ -143,6 +147,9 @@ public class AsyncTaskScheduler {
                 scheduleTask(t);
                 startId = t.id;
             }
+
+            // 为了兼容MySQL与Oracle，不分页了
+            break;
         } while (taskList.size() > 0);
     }
 
