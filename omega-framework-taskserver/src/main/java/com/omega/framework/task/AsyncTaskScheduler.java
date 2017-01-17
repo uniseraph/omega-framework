@@ -125,7 +125,7 @@ public class AsyncTaskScheduler {
 
             // 为了兼容MySQL与Oracle，不分页了
             taskList = jdbcTemplate.queryForList("select * from " + taskTableName +
-                    " where triggerTime<? and id>?", new Object[] { triggerTime, startId });
+                    " where triggerTime<?", new Object[] { triggerTime });
 
             ObjectMapper mapper = new ObjectMapper();
             for (Map<String, Object> m : taskList) {
