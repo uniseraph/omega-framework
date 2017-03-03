@@ -19,8 +19,8 @@ push:
 	docker tag ${IMAGE_NAME}:${MAJOR_VERSION} ${IMAGE_NAME}:${MAJOR_VERSION}-${GIT_VERSION}
 	docker tag ${IMAGE_NAME}:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}:${MAJOR_VERSION}
 	docker tag ${IMAGE_NAME}:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}:${MAJOR_VERSION}-${GIT_VERSION}
-	docker push ${REGISTRY_NAME}/${IMAGE_NAME}:${MAJOR_VERSION}-${GIT_VERSION}
-	docker push ${REGISTRY_NAME}/${IMAGE_NAME}:${MAJOR_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}:${MAJOR_VERSION}-${GIT_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}:${MAJOR_VERSION}
 
 shell:
 	docker run -ti --rm  -w /opt/omega-framework-assembly-${MAJOR_VERSION}  ${IMAGE_NAME}:${MAJOR_VERSION}  sh
