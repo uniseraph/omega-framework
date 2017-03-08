@@ -1,6 +1,17 @@
 server:
   port: 8761
 
+
+logging:
+  path: /var/log
+  level:
+    root: WARN
+    com:
+      omega:
+        framework: DEBUG
+---
+spring:
+  profiles: dev
 eureka:
   instance:
     hostname: localhost
@@ -11,10 +22,44 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
-logging:
-  path: /var/log
-  level:
-    root: WARN
-    com:
-      ongo360:
-        demo: DEBUG
+
+---
+spring:
+  profiles: eureka1
+eureka:
+  instance:
+    #hostname: ${eureka1.instance.hostname}
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka2.instance.hostname}:${server.port}/eureka/,http://${eureka3.instance.hostname}:${server.port}/eureka/
+
+
+---
+spring:
+  profiles: eureka2
+eureka:
+  instance:
+    #hostname: ${eureka1.instance.hostname}
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka1.instance.hostname}:${server.port}/eureka/,http://${eureka3.instance.hostname}:${server.port}/eureka/
+
+
+---
+spring:
+  profiles: eureka3
+eureka:
+  instance:
+    #hostname: ${eureka1.instance.hostname}
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka1.instance.hostname}:${server.port}/eureka/,http://${eureka2.instance.hostname}:${server.port}/eureka/
