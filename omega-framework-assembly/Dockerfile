@@ -4,4 +4,4 @@ ENV VERSION 0.1
 
 ADD ./target/omega-framework-assembly-${VERSION}-bin.tar.gz /opt
 
-WORKDIR /opt/omega-framework-assembly-0.1
+WORKDIR /opt/omega-framework-assembly-${VERSION}
