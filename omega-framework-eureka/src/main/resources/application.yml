@@ -1,11 +1,14 @@
 server:
   port: 8761
 
+spring:
+  profiles:
+    active: dev
 
 logging:
   path: /var/log
   level:
-    root: WARN
+    root: info
     com:
       omega:
         framework: DEBUG
@@ -28,7 +31,6 @@ spring:
   profiles: eureka1
 eureka:
   instance:
-    hostname: ${eureka1.instance.hostname}
     preferIpAddress: true
   client:
     registerWithEureka: true
@@ -42,7 +44,7 @@ spring:
   profiles: eureka2
 eureka:
   instance:
-    hostname: ${eureka2.instance.hostname}
+    #hostname: localhost
     preferIpAddress: true
   client:
     registerWithEureka: true
@@ -56,7 +58,7 @@ spring:
   profiles: eureka3
 eureka:
   instance:
-    hostname: ${eureka3.instance.hostname}
+    #hostname: localhost
     preferIpAddress: true
   client:
     registerWithEureka: true

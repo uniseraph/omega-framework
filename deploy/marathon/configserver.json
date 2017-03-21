@@ -1,0 +1,49 @@
+{
+  "id": "/configserver",
+  "cmd": "java -jar lib/omega-framework-configserver-0.1.jar --server.port=8080 --spring.rabbitmq.host=192.168.82.3 --euerka.client.serviceUrl.defaultZone=http://192.168.37.2:8080/eureka/ --logging.level.root=info",
+  "cpus": 0.5,
+  "mem": 1024,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework:0.1",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 0,
+          "servicePort": 10003,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": true
+    }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "path": "/health",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp",
+      "name": "default",
+      "labels": {}
+    }
+  ]
+}

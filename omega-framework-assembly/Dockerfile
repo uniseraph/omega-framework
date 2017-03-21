@@ -1,4 +1,4 @@
-FROM java:8-alpine
+FROM java:8-jre-alpine
 
 ENV VERSION 0.1
 

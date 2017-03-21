@@ -1,0 +1,35 @@
+{
+  "id": "eureka1",
+  "cmd": "sh start-eureka.sh --server.port=80 --spring.profiles.active=eureka3 --eureka.instance.hostname=eureka3.service.consul  --eureka1.instance.hostname=eureka1.service.consul   --eureka2.instance.hostname=eureka2.service.consul   --eureka3.instance.hostname=eureka3.service.consul   --logging.level.root=info",
+  "cpus": 0.5,
+  "mem": 512,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework:0.1",
+      "network": "BRIDGE",
+      "forcePullImage": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp",
+          "name": null,
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/health",
+      "portIndex": 0,
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ]
+}
