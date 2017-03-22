@@ -1,6 +1,6 @@
 {
   "id": "/configserver",
-  "cmd": "java -jar lib/omega-framework-configserver-0.1.jar --server.port=8080 --spring.rabbitmq.host=192.168.82.3 --euerka.client.serviceUrl.defaultZone=http://192.168.37.2:8080/eureka/ --logging.level.root=info",
+  "cmd": "sh -x start-configserver.sh --server.port=8080 --spring.rabbitmq.host=rabbitmq.mesos.consul --euerka.client.serviceUrl.defaultZone=http://eureka1.mesos.consul:80/eureka,http://eureka2.mesos.consul:80/eureka,http://eureka3.mesos.consul:80/eureka --logging.level.root=info",
   "cpus": 0.5,
   "mem": 1024,
   "disk": 0,
