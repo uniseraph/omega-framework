@@ -26,7 +26,7 @@ eureka:
 logging:
   path: /var/log
   level:
-    root: WARN
+    root: info
     com:
-      ongo360:
-        demo: DEBUG
+      omega:
+        framework: DEBUG
