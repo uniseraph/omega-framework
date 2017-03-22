@@ -1,0 +1,56 @@
+{
+  "id": "/rabbitmq",
+  "cmd": null,
+  "cpus": 0.1,
+  "mem": 256,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "rabbitmq:3-management",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 5672,
+          "hostPort": 0,
+          "servicePort": 10003,
+          "protocol": "tcp",
+          "labels": {}
+        },
+        {
+          "containerPort": 15672,
+          "hostPort": 0,
+          "servicePort": 10004,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "RABBITMQ_DEFAULT_USER": "ongo360",
+    "RABBITMQ_DEFAULT_PASS": "ongo360",
+    "RABBITMQ_DEFAULT_VHOST": "ongo360_vhost"
+  },
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp",
+      "name": "default",
+      "labels": {}
+    },
+    {
+      "port": 10004,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ]
+}

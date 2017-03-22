@@ -1,11 +1,13 @@
 {
   "id": "/configserver",
-  "cmd": "java -jar lib/omega-framework-configserver-0.1.jar --server.port=8080 --spring.rabbitmq.host=192.168.82.3 --euerka.client.serviceUrl.defaultZone=http://192.168.37.2:8080/eureka/ --logging.level.root=info",
+  "cmd": "sh -x start-configserver.sh --server.port=80  --spring.rabbitmq.host=rabbitmq.service.consul --eureka.client.serviceUrl.defaultZone=http://eureka1.service.consul/eureka/,http://eureka2.service.consul/eureka/,http://eureka3.service.consul/eureka/  --logging.level.root=info",
   "cpus": 0.5,
   "mem": 1024,
   "disk": 0,
   "instances": 1,
-  "acceptedResourceRoles": [],
+  "acceptedResourceRoles": [
+    "*"
+  ],
   "container": {
     "type": "DOCKER",
     "volumes": [],
@@ -14,7 +16,7 @@
       "network": "BRIDGE",
       "portMappings": [
         {
-          "containerPort": 8080,
+          "containerPort": 80,
           "hostPort": 0,
           "servicePort": 10003,
           "protocol": "tcp",
@@ -23,7 +25,7 @@
       ],
       "privileged": false,
       "parameters": [],
-      "forcePullImage": true
+      "forcePullImage": false
     }
   },
   "healthChecks": [
@@ -38,12 +40,9 @@
       "ignoreHttp1xx": false
     }
   ],
-  "portDefinitions": [
-    {
-      "port": 10003,
-      "protocol": "tcp",
-      "name": "default",
-      "labels": {}
-    }
-  ]
+  "env": {
+    "RABBITMQ_DEFAULT_USER": "ongo360",
+    "RABBITMQ_DEFAULT_PASS": "ongo360",
+    "RABBITMQ_DEFAULT_VHOST": "ongo360_vhost"
+  }
 }
