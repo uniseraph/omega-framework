@@ -6,9 +6,12 @@ spring:
     name: eureka
   profiles:
     active: dev
+  instance:
+    hostname: localhost
+    preferIpAddress: true
 
 logging:
-  path: /var/log
+#  path: /var/log
   level:
     root: info
     com:
@@ -32,8 +35,9 @@ eureka:
 spring:
   profiles: eureka1
 eureka:
-  instance:
-    preferIpAddress: true
+  #instance:
+  #  hostname: localhost
+  #  preferIpAddress: true
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -45,9 +49,9 @@ eureka:
 spring:
   profiles: eureka2
 eureka:
-  instance:
+  #instance:
     #hostname: localhost
-    preferIpAddress: true
+  #  preferIpAddress: true
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -59,9 +63,9 @@ eureka:
 spring:
   profiles: eureka3
 eureka:
-  instance:
+  #instance:
     #hostname: localhost
-    preferIpAddress: true
+  #  preferIpAddress: true
   client:
     registerWithEureka: true
     fetchRegistry: true
