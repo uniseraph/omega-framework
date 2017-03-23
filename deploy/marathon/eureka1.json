@@ -1,6 +1,6 @@
 {
   "id": "eureka1",
-  "cmd": "sh -x start-eureka.sh --server.port=80 --spring.profiles.active=eureka1 --spring.application.name=eureka --eureka1.instance.hostname=eureka1.service.consul   --eureka2.instance.hostname=eureka2.service.consul   --eureka3.instance.hostname=eureka3.service.consul ",
+  "cmd": "sh -x start-eureka.sh --server.port=80 --spring.profiles.active=eureka1  --eureka1.instance.hostname=eureka1.service.consul   --eureka2.instance.hostname=eureka2.service.consul   --eureka3.instance.hostname=eureka3.service.consul ",
   "cpus": 0.5,
   "mem": 768,
   "disk": 0,

@@ -17,4 +17,5 @@ curl -i -H 'Content-Type: application/json' -d @eureka3.json  kvm1:8080/v2/apps
 curl -i -H 'Content-Type: application/json' -d @configserver.json  kvm1:8080/v2/apps
 
 
+curl -i -H 'Content-Type: application/json' -d @es.json  kvm1:8080/v2/apps
 
