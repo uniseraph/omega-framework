@@ -10,6 +10,14 @@ spring:
     hostname: localhost
     preferIpAddress: true
 
+#启用shutdown
+#禁用密码验证
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+
+
 logging:
 #  path: /var/log
   level:
