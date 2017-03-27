@@ -4,6 +4,11 @@
 
 curl -i -H 'Content-Type: application/json' -d @rabbitmq.json  kvm1:8080/v2/apps
 
+#docker run -ti --rm   activatedgeek/rabbitmqadmin:latest --vhost=ongo360_vhost  --username=ongo360 --password=ongo360  --host=rabbitmq.service.consul  --port=15672       declare exchange name=task durable=true type=direct
+
+#docker run -ti --rm   activatedgeek/rabbitmqadmin:latest --vhost=ongo360_vhost  --username=ongo360 --password=ongo360  --host=rabbitmq.service.consul --port=15672     declare queue name=sendEmail durable=true
+
+#docker run -ti --rm   activatedgeek/rabbitmqadmin:latest --vhost=ongo360_vhost  --username=ongo360 --password=ongo360  --host=rabbitmq.service.consul --port=15672     declare binding source=task destination=sendEmail
 
 
 # deploy eureka cluster with eureka1/2/3.mesos.consul
