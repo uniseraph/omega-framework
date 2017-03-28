@@ -10,8 +10,15 @@ spring:
     hostname: localhost
     preferIpAddress: true
 
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+
+
+
 logging:
-#  path: /var/log
+  path: /var/log
   level:
     root: info
     com:

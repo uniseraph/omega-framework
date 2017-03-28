@@ -33,3 +33,8 @@ logging:
         framework: DEBUG
 
 
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+
