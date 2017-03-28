@@ -1,25 +1,16 @@
 {
-  "id": "/n2",
+  "id": "/n1",
   "cmd": null,
   "cpus": 0.1,
   "mem": 128,
   "disk": 0,
   "instances": 1,
-  "acceptedResourceRoles": [],
   "container": {
     "type": "DOCKER",
     "volumes": [],
     "docker": {
       "image": "nginx",
       "network": "USER",
-      "portMappings": [
-        {
-          "containerPort": 0,
-          "servicePort": 10002,
-          "protocol": "tcp",
-          "labels": {}
-        }
-      ],
       "privileged": false,
       "parameters": [
         {
@@ -28,10 +19,11 @@
         }
       ],
       "forcePullImage": false
-    },
-    "ipAddress": {
-      "networkName" : "vxlan110"
     }
   },
+
+    "ipAddress": {
+      "networkName" : "vxlan110"
+    },
   "portDefinitions": []
 }

@@ -31,6 +31,10 @@
             <directory>../etc</directory>
             <outputDirectory>etc</outputDirectory>
          </fileSet>
+        <fileSet>
+            <directory>../deploy</directory>
+            <outputDirectory>deploy</outputDirectory>
+        </fileSet>
     </fileSets>
     <files>
         <file>

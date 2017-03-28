@@ -18,7 +18,7 @@ endpoints:
 
 
 logging:
-  path: /var/log
+  path: /var/log/omega-framework
   level:
     root: info
     com:
