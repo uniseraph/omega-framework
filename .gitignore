@@ -37,7 +37,8 @@ omega-framework.ipr
 omega-framework.iml
 omega-framework.iws
 omega-framework-turbine/omega-framework-turbine.iml
-
+omega-framework-datasource/omega-framework-datasource.iml
+omega-framework-task-common/omega-framework-task-common.iml
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
