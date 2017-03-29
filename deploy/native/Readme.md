@@ -1,7 +1,7 @@
 # omega-framework 裸机环境安装
 没有docker/dns环境时，安装omega-framework及其依赖。
 
-拿到omega-framework的release包，在发布机解压开。
+拿到omega-framework的release包，在发布机解压开。建议使用configserver作为发布机
 
 
 ```
@@ -108,3 +108,11 @@ sh -x pub-configserver.sh
 configserver可以并行发布。
 
 
+## 发布其它omega-framework模块
+
+在configserver的/root/config-repo目录下准备好配置文件
+
+发布omega-framework-taskserver
+```
+sh -x pub-omega.sh omega-framework-taskserver
+```
