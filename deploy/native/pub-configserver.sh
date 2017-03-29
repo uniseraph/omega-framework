@@ -8,5 +8,5 @@ pssh -h hosts/configserver -l root -i ' curl -X POST http://localhost:8080/shutd
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-configserver-0.1.jar \
                                --server.port=8080  \
                                --spring.rabbitmq.host=rabbitmq \
-                               --eureka.client.serviceUrl.defaultZone=http://eureka1:8080/eureka/ \
+                               --eureka.client.serviceUrl.defaultZone=http://eureka1:8080/eureka/,http://eureka2:8080/eureka,http://eureka3:8080/eureka \
                                '
