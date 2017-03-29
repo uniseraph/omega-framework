@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by jackychenb on 11/12/2016.
  */
 
-@FeignClient(value = "ongo360-demo-taskserver", fallback = TaskService.HystrixTaskService.class)
+@FeignClient(value = "omega-framework-taskserver", fallback = TaskService.HystrixTaskService.class)
 public interface TaskService {
 
     @RequestMapping(value = "/schedule", method = RequestMethod.POST)

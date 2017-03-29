@@ -70,6 +70,11 @@ public class AsyncTaskScheduler {
             return;
         }
 
+        ScheduledFuture oldTask = taskMap.get(task.id);
+        if (oldTask != null) {
+            return;
+        }
+
         if (!queueNameSet.containsKey(task.type)) {
             synchronized (rabbitAdmin) {
                 Queue queue = new Queue(task.type);
@@ -82,8 +87,6 @@ public class AsyncTaskScheduler {
                 queueNameSet.put(task.type, Boolean.TRUE);
             }
         }
-
-        unscheudleTask(task.id);
 
         long delay = task.triggerTime.getTime() - new Date().getTime();
         if (delay < 0) {
@@ -111,28 +114,43 @@ public class AsyncTaskScheduler {
         endTime = new Date().getTime() + loadInterval * 60 * 1000;
         taskMap.clear();
 
-        List<Map<String, Object>> taskList = jdbcTemplate.queryForList("select * from " + taskTableName
-                + " where triggerTime<? order by triggerTime", new Object[] { new Date(endTime) });
+        Date triggerTime = new Date(endTime);
+        String startId = "0";
+        List<Map<String, Object>> taskList;
+        do {
+//            taskList = jdbcTemplate.queryForList("select * from " + taskTableName +
+//                            " where triggerTime<? and id>? " +
+//                            " order by id " +
+//                            " limit 100", new Object[] { triggerTime, startId });
 
-        ObjectMapper mapper = new ObjectMapper();
-        for (Map<String, Object> m : taskList) {
-            Task t = new Task();
-            t.id = (String) m.get("id");
-            t.type = (String) m.get("type");
-            t.triggerTime = (Date) m.get("triggerTime");
+            // 为了兼容MySQL与Oracle，不分页了
+            taskList = jdbcTemplate.queryForList("select * from " + taskTableName +
+                    " where triggerTime<?", new Object[] { triggerTime });
 
-            String dataMapString = (String) m.get("dataMap");
-            if (StringUtils.isNotBlank(dataMapString)) {
-                try {
-                    t.dataMap = mapper.readValue(dataMapString, HashMap.class);
-                } catch (IOException e) {
-                    logger.error("failed to read data map of task " + t.id, e);
-                    continue;
+            ObjectMapper mapper = new ObjectMapper();
+            for (Map<String, Object> m : taskList) {
+                Task t = new Task();
+                t.id = (String) m.get("id");
+                t.type = (String) m.get("type");
+                t.triggerTime = (Date) m.get("triggerTime");
+
+                String dataMapString = (String) m.get("dataMap");
+                if (StringUtils.isNotBlank(dataMapString)) {
+                    try {
+                        t.dataMap = mapper.readValue(dataMapString, HashMap.class);
+                    } catch (IOException e) {
+                        logger.error("failed to read data map of task " + t.id, e);
+                        continue;
+                    }
                 }
+
+                scheduleTask(t);
+                startId = t.id;
             }
 
-            scheduleTask(t);
-        }
+            // 为了兼容MySQL与Oracle，不分页了
+            break;
+        } while (taskList.size() > 0);
     }
 
     private class ScheduledTask implements Runnable {

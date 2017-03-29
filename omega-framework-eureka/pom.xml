@@ -13,7 +13,7 @@
   <name>omega-framework-eureka</name>
   <url>http://maven.apache.org</url>
   <properties>
-    <start-class>com.omega.framework.application.EurekaApplication</start-class>
+    <!--start-class>EurekaApplication</start-class-->
     </properties>
   <dependencies>
     <dependency>

@@ -1,0 +1,29 @@
+{
+  "id": "/n1",
+  "cmd": null,
+  "cpus": 0.1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "nginx",
+      "network": "USER",
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "publish",
+          "value": "80"
+        }
+      ],
+      "forcePullImage": false
+    }
+  },
+
+    "ipAddress": {
+      "networkName" : "vxlan110"
+    },
+  "portDefinitions": []
+}

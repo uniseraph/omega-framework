@@ -29,7 +29,7 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-    </dependencies>
+     </dependencies>
 </dependencyManagement>
   <dependencies>
       <dependency>
@@ -87,6 +87,7 @@
         <module>omega-framework-turbine</module>
         <module>omega-framework-zipkin-server</module>
         <module>omega-framework-admin-dashboard</module>
+        <module>omega-framework-assembly</module>
 
         <!--module>omega-framework-datasource</module>
         <module>omega-framework-task-common</module>

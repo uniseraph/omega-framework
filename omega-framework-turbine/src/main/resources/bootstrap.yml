@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       discovery:
-        enabled: true
+        enabled: false
         serviceId: omega-framework-configserver
       profile: dev
       label: master

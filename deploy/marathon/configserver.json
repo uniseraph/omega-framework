@@ -1,0 +1,48 @@
+{
+  "id": "/configserver",
+  "cmd": "sh -x start-configserver.sh --server.port=80  --spring.rabbitmq.host=rabbitmq.service.consul --eureka.client.serviceUrl.defaultZone=http://eureka1.service.consul/eureka/,http://eureka2.service.consul/eureka/,http://eureka3.service.consul/eureka/  --logging.level.root=info",
+  "cpus": 0.5,
+  "mem": 1024,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework:0.1",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 0,
+          "servicePort": 10003,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "path": "/health",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ],
+  "env": {
+    "RABBITMQ_DEFAULT_USER": "ongo360",
+    "RABBITMQ_DEFAULT_PASS": "ongo360",
+    "RABBITMQ_DEFAULT_VHOST": "ongo360_vhost"
+  }
+}
