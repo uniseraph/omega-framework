@@ -30,7 +30,7 @@ tar zxvf omega-framework-assembly-0.1-bin.tar.gz -C /opt
 10.186.124.230
 10.186.124.232
 10.186.124.245
-
+```
 
 ## 选择一台机器作为发布机，建议使用rabbitmq作为发布机
 

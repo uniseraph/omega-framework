@@ -7,6 +7,7 @@ pssh -h hosts/eureka1 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
                                sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
+                               --logging.path=/home/admin/logs \
                                --server.port=8080 --spring.profiles.active=eureka1 \
                                --eureka1.instance.hostname=eureka1 \
                                --eureka2.instance.hostname=eureka2 \
@@ -25,6 +26,7 @@ pssh -h hosts/eureka2 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
                                 sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
+                               --logging.path=/home/admin/logs \
                                --server.port=8080 --spring.profiles.active=eureka2 \
                                --eureka1.instance.hostname=eureka1 \
                                --eureka2.instance.hostname=eureka2 \
@@ -44,6 +46,7 @@ pssh -h hosts/eureka3 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
                                sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
+                               --logging.path=/home/admin/logs \
                                --server.port=8080 --spring.profiles.active=eureka3 \
                                --eureka1.instance.hostname=eureka1 \
                                --eureka2.instance.hostname=eureka2 \
