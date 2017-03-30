@@ -3,7 +3,7 @@
 SERVICE_NAME=$1
 VERSION=$2
 
-pscp -h hosts/$SERVICE_NAME  -l  admin  ./omega-framework/lib/${SERVICE_NAME}-${VERSION}.jar /home/admin/omega-framework/lib/
+pscp -h hosts/$SERVICE_NAME  -l  admin  ../../lib/${SERVICE_NAME}-${VERSION}.jar /home/admin/omega-framework/lib/
 
 CMD=" curl -fsSL -X POST http://localhost:8080/shutdown ;  \
       sleep 5 &&  \
