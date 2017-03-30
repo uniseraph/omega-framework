@@ -14,6 +14,11 @@ turbine:
   # 2. 当clusterNameExpression: default时，turbine.aggregator.clusterConfig可以不写，因为默认就是default
   # 3. 当clusterNameExpression: metadata['cluster']时，假设想要监控的应用配置了eureka.instance.metadata-map.cluster: ABC，则需要配置，同时turbine.aggregator.clusterConfig: ABC
 
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+
 logging:
   path: /var/log
   level:

@@ -8,3 +8,8 @@ spring:
     username: ongo360
     password: ongo360
     virtual-host: ongo360_vhost
+
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true

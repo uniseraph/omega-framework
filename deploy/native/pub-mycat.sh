@@ -2,11 +2,11 @@
 
 
 
-pscp -h hosts/mycat -l root ./binary/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz /root/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz
+pscp -h hosts/mycat -l admin ./binary/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz /home/admin/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz
 
-pssh -h hosts/zookeeper -l root -i ' tar zxvf /root/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz -C /opt '
+pssh -h hosts/zookeeper -l admin -i ' tar zxvf /home/admin/Mycat-server-1.6.1-RELEASE-20170329150015-linux.tar.gz -C /home/admin '
 
-pscp -h hosts/mycat -l root ./mycat/conf/*  /opt/mycat/conf/
+pscp -h hosts/mycat -l admin ./mycat/conf/*  /home/admin/mycat/conf/
 
-pssh -h hosts/zookeeper -l root -i ' cd /opt/mycat && \
+pssh -h hosts/zookeeper -l admin -i ' cd /home/admin/mycat && \
                                     ./bin/mycat console '

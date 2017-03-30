@@ -6,16 +6,11 @@ spring:
     name: eureka
   profiles:
     active: dev
-  instance:
-    hostname: localhost
-    preferIpAddress: true
 
 endpoints:
   shutdown:
     sensitive: false
     enabled: true
-
-
 
 logging:
   path: /var/log/omega-framework
@@ -24,13 +19,15 @@ logging:
     com:
       omega:
         framework: DEBUG
+
+
 ---
 spring:
   profiles: dev
 eureka:
   instance:
-    hostname: localhost
     preferIpAddress: true
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: false
     fetchRegistry: false
@@ -42,9 +39,9 @@ eureka:
 spring:
   profiles: eureka1
 eureka:
-  #instance:
-  #  hostname: localhost
-  #  preferIpAddress: true
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -56,9 +53,9 @@ eureka:
 spring:
   profiles: eureka2
 eureka:
-  #instance:
-    #hostname: localhost
-  #  preferIpAddress: true
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -70,9 +67,9 @@ eureka:
 spring:
   profiles: eureka3
 eureka:
-  #instance:
-    #hostname: localhost
-  #  preferIpAddress: true
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true

@@ -13,7 +13,8 @@ pssh -h hosts/rabbitmq -l root -i ' yum install -y rabbitmq-server-3.6.8-1.el7.n
                                     rabbitmqctl add_vhost ongo360_vhost && \
                                     rabbitmqctl set_permissions -p "ongo360_vhost"  ongo360  ".*" ".*" ".*"'
 
-pssh -h hosts/rabbitmq -l root -i ' rabbitmqadmin --vhost=ongo360_vhost -u ongo360 -p ongo360 \
+pssh -h hosts/rabbitmq -l root -i ' chmod +x /usr/bin/rabbitmqadmin && \
+                                    rabbitmqadmin --vhost=ongo360_vhost -u ongo360 -p ongo360 \
                                         declare  exchange name=task durable=true type=direct && \
                                     rabbitmqadmin --vhost=ongo360_vhost -u ongo360 -p ongo360 \
                                         declare queue name=sendEmail durable=true  && \

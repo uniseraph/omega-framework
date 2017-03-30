@@ -30,8 +30,36 @@ tar zxvf omega-framework-assembly-0.1-bin.tar.gz -C /opt
 10.186.124.230
 10.186.124.232
 10.186.124.245
+```
+
+## 选择一台机器作为发布机，建议使用rabbitmq作为发布机
+
+执行如下命令初始化发布机
 
 ```
+yum install -y  pssh curl telnet
+ln -s /usr/bin/pscp.pssh /usr/bin/pscp
+
+useradd admin
+passwd admin
+su - admin
+if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
+    ssh-keygen -t rsa
+fi
+
+
+```
+请记住发布机admin用户代码，后续需要登录发布机。
+
+
+## 拷贝omega-framework的release包到发布机/home/admin目录
+
+```
+scp omega-framework-assembly/target/omega-framework-assembly-0.1-bin.tar.gz root@47.92.30.250:/home/admin
+```
+
+
+
 
 在native目录下执行
 ```
@@ -39,11 +67,7 @@ sh -x prepare.sh
 ```
 初始化hosts/all中的所有机器，安装jdk以及常用软件包，并实现免登录和配置/etc/hosts。
 
-
-
-
-
-注意prepare.sh只能只能执行一次。
+注意prepare.sh只能执行一次。
 
 ## 安装zookeeper
 
@@ -62,6 +86,7 @@ sh -x install-zookeeper.sh
 
 ## 安装rabbitmq
 
+在prepare.sh 中已经默认执行了，所以可以不用单独调用。
 为hosts/rabbitmq中的rabbitmq机器安装rabbitmq，并初始化用户/vhost分配权限，以及初始化queue／exchange.
 
 hosts/rabbitmq记录了rabbitmq的地址。
@@ -76,13 +101,15 @@ sh -x install-rabbitmq.sh
 
 在hosts/eureka中记录所有eureka服务器，
 ```
-10.186.124.41
+10.186.124.115
 10.186.124.55
+10.186.124.113
+
 ```
 
 在hosts/eureka1中记录eureka1
 ```
-10.186.124.41
+10.186.124.115
 ```
 
 
@@ -114,5 +141,5 @@ configserver可以并行发布。
 
 发布omega-framework-taskserver
 ```
-sh -x pub-omega.sh omega-framework-taskserver
+sh -x pub-omega.sh omega-framework-taskserver 0.1
 ```
