@@ -1,10 +1,10 @@
-192.168.1.1     configserver1
-192.168.1.250   configserver2
-192.168.1.251   eureka1
-192.168.1.5     eureka2
-192.168.1.6     eureka3
-192.168.1.252   rabbitmq
-192.168.1.3     zookeeper1
-192.168.1.4     mycat1
-192.168.1.2     mycat2
-192.168.1.249
+192.168.1.7     configserver1
+192.168.1.8   configserver2
+192.168.1.9   eureka1
+192.168.1.10     eureka2
+192.168.1.11    eureka3
+192.168.1.12   rabbitmq
+192.168.1.13     zookeeper1
+192.168.1.14     mycat1
+192.168.1.15     mycat2
+192.168.1.16

@@ -31,6 +31,34 @@ tar zxvf omega-framework-assembly-0.1-bin.tar.gz -C /opt
 10.186.124.232
 10.186.124.245
 
+
+## 选择一台机器作为发布机，建议使用rabbitmq作为发布机
+
+执行如下命令初始化发布机
+
+```
+yum install -y  pssh curl telnet
+ln -s /usr/bin/pscp.pssh /usr/bin/pscp
+
+useradd admin
+passwd admin
+su - admin
+if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
+    ssh-keygen -t rsa
+fi
+
+
+```
+请记住发布机admin用户代码，后续需要登录发布机。
+
+
+## 拷贝omega-framework的release包到发布机/home/admin目录
+
+```
+scp omega-framework-assembly/target/omega-framework-assembly-0.1-bin.tar.gz root@47.92.30.250:/home/admin
+```
+
+
 ```
 
 在native目录下执行
