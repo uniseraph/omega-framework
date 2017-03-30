@@ -59,17 +59,13 @@ scp omega-framework-assembly/target/omega-framework-assembly-0.1-bin.tar.gz root
 ```
 
 
-```
+
 
 在native目录下执行
 ```
 sh -x prepare.sh
 ```
 初始化hosts/all中的所有机器，安装jdk以及常用软件包，并实现免登录和配置/etc/hosts。
-
-
-
-
 
 注意prepare.sh只能执行一次。
 
@@ -90,6 +86,7 @@ sh -x install-zookeeper.sh
 
 ## 安装rabbitmq
 
+在prepare.sh 中已经默认执行了，所以可以不用单独调用。
 为hosts/rabbitmq中的rabbitmq机器安装rabbitmq，并初始化用户/vhost分配权限，以及初始化queue／exchange.
 
 hosts/rabbitmq记录了rabbitmq的地址。
@@ -104,13 +101,15 @@ sh -x install-rabbitmq.sh
 
 在hosts/eureka中记录所有eureka服务器，
 ```
-10.186.124.41
+10.186.124.115
 10.186.124.55
+10.186.124.113
+
 ```
 
 在hosts/eureka1中记录eureka1
 ```
-10.186.124.41
+10.186.124.115
 ```
 
 
