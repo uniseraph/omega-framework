@@ -10,13 +10,6 @@ if [[ "$(id -u)" != "0" ]]; then
     exit 1
 fi
 
-if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
-    ssh-keygen -t rsa
-fi
-
-
-pscp -h hosts/hosts -l root -A  ~/.ssh/id_rsa.pub    /root/.ssh/authorized_keys
-
 pscp -h hosts/hosts -l root ./binary/jdk-8u121-linux-x64.rpm  /root/jdk-8u121-linux-x64.rpm
 
 pscp -h hosts/hosts -l root ./hosts/all   /root/all
