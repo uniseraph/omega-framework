@@ -1,0 +1,5 @@
+mysql: mysql://monitor:monitor@mysql:3306/monitor?pool=true
+port: 8080
+redis:
+  prefix: sidecar
+  url: redis://redis:6379/6
