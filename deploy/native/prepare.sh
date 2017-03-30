@@ -16,7 +16,7 @@ pscp -h hosts/hosts -l root ./binary/jdk-8u121-linux-x64.rpm  /root/jdk-8u121-li
 pscp -h hosts/hosts -l root ./hosts/all   /root/all
 pssh -h hosts/hosts -l root -i 'cat /root/all >> /etc/hosts'
 pssh -h hosts/hosts -l root -i 'rpm -i /root/jdk-8u121-linux-x64.rpm'
-pssh -h hosts/hosts -l root -i 'yum install -y  tcpdump curl jq'
+pssh -h hosts/hosts -l root -i 'yum install -y  tcpdump curl jq telnet'
 
 
 
