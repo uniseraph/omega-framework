@@ -42,6 +42,11 @@ default:
     MaxAutoRetriesNextServer: 2
     OkToRetryOnAllOperations: true // All operations should be idempotent
 
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+
 logging:
   path: /var/log
   level:
