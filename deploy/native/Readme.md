@@ -43,7 +43,7 @@ sh -x prepare.sh
 
 
 
-注意prepare.sh只能只能执行一次。
+注意prepare.sh只能执行一次。
 
 ## 安装zookeeper
 
