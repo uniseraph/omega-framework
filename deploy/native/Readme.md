@@ -141,5 +141,5 @@ configserver可以并行发布。
 
 发布omega-framework-taskserver
 ```
-sh -x pub-omega.sh omega-framework-taskserver
+sh -x pub-omega.sh omega-framework-taskserver 0.1
 ```
