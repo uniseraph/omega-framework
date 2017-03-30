@@ -86,7 +86,6 @@
         <module>omega-framework-taskserver</module>
         <module>omega-framework-turbine</module>
         <module>omega-framework-zipkin-server</module>
-        <module>omega-framework-admin-dashboard</module>
         <module>omega-framework-assembly</module>
 
         <!--module>omega-framework-datasource</module>
@@ -98,7 +97,6 @@
         <module>omega-framework-hystrix-dashboard</module>
         <module>omega-framework-turbine</module-->
         <!--module>omega-framework-zuul</module-->
-        <!--module>omega-framework-zipkin-server</module>
-        <module>omega-framework-admin-dashboard</module-->
+        <!--module>omega-framework-zipkin-server</module-->
     </modules>
 </project>
