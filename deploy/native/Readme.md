@@ -34,7 +34,7 @@ tar zxvf omega-framework-assembly-0.1-bin.tar.gz -C /opt
 
 ## 选择一台机器作为发布机，建议使用rabbitmq作为发布机
 
-执行如下命令初始化发布机
+以root用户执行如下命令初始化发布机
 
 ```
 yum install -y  pssh curl telnet
@@ -49,7 +49,7 @@ fi
 
 
 ```
-请记住发布机admin用户代码，后续需要登录发布机。
+请记住发布机admin用户密码，后续流程需要以admin用户登录发布机操作。
 
 
 ## 拷贝omega-framework的release包到发布机/home/admin目录
