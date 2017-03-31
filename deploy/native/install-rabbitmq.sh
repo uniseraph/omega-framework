@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+curr_path=`pwd`
+cd `dirname $0`
+
 pscp -h hosts/rabbitmq -l root ./binary/rabbitmq-server-3.6.8-1.el7.noarch.rpm /root/rabbitmq-server-3.6.8-1.el7.noarch.rpm
 pscp -h hosts/rabbitmq -l root ./binary/rabbitmqadmin /usr/bin/rabbitmqadmin
 
@@ -21,3 +24,4 @@ pssh -h hosts/rabbitmq -l root -i ' chmod +x /usr/bin/rabbitmqadmin && \
                                     rabbitmqadmin --vhost=ongo360_vhost -u ongo360 -p ongo360 \
                                         declare binding source=task destination=sendEmail '
 
+cd $curr_path

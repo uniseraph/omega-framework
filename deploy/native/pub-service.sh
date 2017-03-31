@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+curr_path=`pwd`
+cd `dirname $0`
+
 SERVICE_NAME=$1
 VERSION=$2
 
@@ -14,4 +17,7 @@ CMD=" curl -fsSL -X POST http://localhost:8080/shutdown ;  \
                                --spring.cloud.config.profile=test  \
                                --spring.cloud.config.label=master  \
                                --eureka.client.serviceUrl.defaultZone=http://eureka1:8080/eureka/,http://eureka2:8080/eureka,http://eureka3:8080/eureka "
+
 pssh -h hosts/$SERVICE_NAME -l admin -i $CMD
+
+cd $curr_path

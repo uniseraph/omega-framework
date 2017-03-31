@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+curr_path=`pwd`
+cd `dirname $0`
 
 echo "所有需要root权限的动作在此执行"
-
 
 if [[ "$(whoami)" != "admin" ]]; then
     echo "Please run as admin"
@@ -34,3 +35,5 @@ pssh -h hosts/hosts -l root -i 'useradd admin && su - admin && mkdir -p /home/ad
 pscp -h hosts/hosts -l root /home/admin/.ssh/id_rsa.pub /home/admin/.ssh/authorized_keys
 
 pssh -h hosts/hosts -l admin -i 'mkdir -p /home/admin/omega-framework/lib'
+
+cd $curr_path

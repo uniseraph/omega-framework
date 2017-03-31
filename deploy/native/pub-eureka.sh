@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+curr_path=`pwd`
+cd `dirname $0`
 
 pscp -h hosts/eureka  -l  admin  ../../lib/omega-framework-eureka*.jar /home/admin/omega-framework/lib/
 
@@ -41,7 +43,6 @@ pssh -h hosts/eureka2 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
     sleep 1
   done
 
-
 pssh -h hosts/eureka3 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shutdown ;  \
                                sleep 5 && \
                                cd /home/admin/omega-framework && \
@@ -60,3 +61,5 @@ pssh -h hosts/eureka3 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
     fi
     sleep 1
   done
+
+cd $curr_path
