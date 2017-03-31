@@ -146,7 +146,7 @@ sh -x pub-omega.sh omega-framework-taskserver 0.1
 
 将配置文件omega-demo-service-test.yml放置在config-repo/master目录下；
 
-将程序文件omega-demo-service-0.1.jar防止在lib-repo目录下；
+将程序文件omega-demo-service-0.1.jar放置在lib-repo目录下；
 
 创建hosts/omega-demo-service文件，记录下所有omega-demo-service机器的IP地址，一个IP占一行。
 
