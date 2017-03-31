@@ -13,7 +13,7 @@ fi
 cd hosts
 
 awk '{print $1}' all > hosts
-awk '{print $0 > $2}' all
+awk '{print $1 > $2}' all
 
 cat eureka* > eureka
 cat configserver* > configserver
