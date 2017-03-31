@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+security:
+  basic:
+    enabled: false
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+logging:
+  path: /var/log
+  level:
+    root: INFO
+    com:
+      ongo360:
+        demo: DEBUG

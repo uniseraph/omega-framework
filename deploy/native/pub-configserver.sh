@@ -5,8 +5,8 @@ pscp -h hosts/configserver  -l  admin  ../../lib/omega-framework-configserver*.j
 
 pssh -h hosts/configserver -l admin -i ' curl -fsSL -X POST http://localhost:8080/shutdown ;\
                                sleep 5 &&  \
-                               cd /home/admin/omega-framework && \
-                               java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-configserver-0.1.jar \
+                               cd /home/admin && \
+                               java -Djava.security.egd=file:/dev/./urandom -jar omega-framework/lib/omega-framework-configserver-0.1.jar \
                                --logging.path=/home/admin/logs \
                                --server.port=8080  \
                                --spring.rabbitmq.host=rabbitmq \

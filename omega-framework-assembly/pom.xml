@@ -35,11 +35,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>omega-framework-admin-dashboard</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>omega-framework-zipkin-server</artifactId>
             <version>${project.version}</version>
         </dependency>
