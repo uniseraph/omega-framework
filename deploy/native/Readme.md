@@ -143,6 +143,7 @@ sh -x pub-omega.sh omega-framework-taskserver 0.1
 ## 发布业务模块
 
 以omega-demo-service模块为例。
+
 将配置文件omega-demo-service-test.yml放置在config-repo/master目录下；
 
 将程序文件omega-demo-service-0.1.jar防止在lib-repo目录下；
