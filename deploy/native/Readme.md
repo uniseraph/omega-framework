@@ -26,7 +26,7 @@ tar zxvf omega-framework-assembly-0.1-bin.tar.gz
 cd omega-framework-assembly-0.1/deploy/native
 ```
 
-##  初始化所有环境
+##  初始化所有机器
 
 人工在hosts/all中分配角色。
 ```
