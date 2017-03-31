@@ -59,11 +59,6 @@ sh -x prepare.sh
 
 ## 安装zookeeper
 
-创建hosts/zookeeper文件，记录下所有zookeeper机器的IP地址，一个IP占一行。
-```
-10.186.124.108
-```
-
 在native目录下执行：
 ```
 sh -x install-zookeeper.sh
@@ -71,11 +66,6 @@ sh -x install-zookeeper.sh
 安装zookeeper并启动服务。
 
 ## 安装rabbitmq
-
-创建hosts/rabbitmq文件，记录下所有rabbitmq机器的IP地址，一个IP占一行。
-```
-10.186.124.105
-```
 
 在native目录下执行
 ```
@@ -85,15 +75,6 @@ sh -x install-rabbitmq.sh
 
 ## 发布eureka
 
-创建hosts/eureka文件，记录下所有eureka机器的IP地址，一个IP占一行。
-```
-10.186.124.41
-10.186.124.55
-10.186.124.72
-```
-
-创建hosts/eureka1、hosts/eureka2及hosts/eureka3文件，分别记录eureka1、eureka2及eureka3各自的ip。
-
 在native目录下执行：
 ```
 sh -x pub-eureka.sh
@@ -101,14 +82,6 @@ sh -x pub-eureka.sh
 发布eureka集群服务。
 
 ## 发布configserver
-
-创建hosts/configserver文件，记录下所有configserver机器的IP地址，一个IP占一行。
-```
-10.186.124.80
-10.186.124.82
-```
-
-创建hosts/configserver1、hosts/configserver2文件，分别记录configserver1、configserver2各自的ip。
 
 在native目录下执行：
 ```
