@@ -8,7 +8,7 @@ yum install -y  pssh curl telnet
 ln -s /usr/bin/pscp.pssh /usr/bin/pscp
 
 useradd admin
-passwd admin
+passwd xxx
 su - admin
 if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
     ssh-keygen -t rsa
