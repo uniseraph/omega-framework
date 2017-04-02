@@ -10,7 +10,7 @@ VERSION=$2
 pssh -h hosts/$SERVICE_NAME -l admin -i 'mkdir -p /home/admin/services/lib'
 pscp -h hosts/$SERVICE_NAME  -l  admin  ./lib-repo/${SERVICE_NAME}-${VERSION}.jar /home/admin/services/lib/
 
-CMD=" curl -fsSL -X POST http://localhost:8080/shutdown ;  \
+CMD=" curl --connect-timeout 2 -fsSL -X POST http://localhost:8080/shutdown ;  \
                                 sleep 5 &&  \
                                java -Djava.security.egd=file:/dev/./urandom -jar /home/admin/services/lib/${SERVICE_NAME}-${VERSION}.jar \
                                --spring.cloud.config.discovery.enabled=true  \

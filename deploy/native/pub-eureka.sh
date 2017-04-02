@@ -5,7 +5,7 @@ cd `dirname $0`
 
 pscp -h hosts/eureka  -l  admin  ../../lib/omega-framework-eureka*.jar /home/admin/omega-framework/lib/
 
-pssh -h hosts/eureka1 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shutdown ;  \
+pssh -h hosts/eureka1 -l admin -i ' curl --connect-timeout 2 -fsSL -X POST http://localhost:8080/shutdown ;  \
                                sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
@@ -24,7 +24,7 @@ pssh -h hosts/eureka1 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
     sleep 1
   done
 
-pssh -h hosts/eureka2 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shutdown ;  \
+pssh -h hosts/eureka2 -l admin -i ' curl --connect-timeout 2 -fsSL -X POST http://localhost:8080/shutdown ;  \
                                 sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
@@ -43,7 +43,7 @@ pssh -h hosts/eureka2 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shu
     sleep 1
   done
 
-pssh -h hosts/eureka3 -l admin -i ' curl -fsSL -X POST http://localhost:8080/shutdown ;  \
+pssh -h hosts/eureka3 -l admin -i ' curl --connect-timeout 2 -fsSL -X POST http://localhost:8080/shutdown ;  \
                                sleep 5 && \
                                cd /home/admin/omega-framework && \
                                java -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar \
