@@ -1,8 +1,8 @@
 {
   "id": "eureka1",
-  "cmd": "sh -x start-eureka.sh --server.port=80 --spring.profiles.active=eureka1  --eureka1.instance.hostname=eureka1.service.consul   --eureka2.instance.hostname=eureka2.service.consul   --eureka3.instance.hostname=eureka3.service.consul ",
-  "cpus": 0.5,
-  "mem": 768,
+  "cmd": "java  ${JAVA_OPTS}  -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-eureka-0.1.jar  ",
+  "cpus": 0.25,
+  "mem": 384,
   "disk": 0,
   "instances": 1,
   "container": {
@@ -12,7 +12,7 @@
       "forcePullImage": false,
       "portMappings": [
         {
-          "containerPort": 80,
+          "containerPort": 8080,
           "protocol": "tcp",
           "name": null,
           "labels": null
@@ -20,6 +20,14 @@
       ]
     },
     "type": "DOCKER"
+  },
+  "env": {
+    "JAVA_OPTS": "-Xms256m -Xmx256m" ,
+    "server.port": "8080" ,
+    "spring.profiles.active": "eureka1",
+    "eureka1.instance.hostname": "eureka1.service.consul" ,
+    "eureka2.instance.hostname": "eureka2.service.consul" ,
+    "eureka3.instance.hostname": "eureka3.service.consul"
   },
   "healthChecks": [
     {
