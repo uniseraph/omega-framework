@@ -10,7 +10,7 @@ IMAGE_NAME = omega-reg/omega-framework
 REGISTRY   = registry.cn-hangzhou.aliyuncs.com
 
 build:
-	mvn package -Dmaven.test.skip=true
+	mvn clean package -Dmaven.test.skip=true
 
 image:
 	docker build --rm -t ${IMAGE_NAME}:${MAJOR_VERSION} omega-framework-assembly
