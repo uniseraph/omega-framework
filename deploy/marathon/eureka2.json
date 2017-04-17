@@ -24,7 +24,7 @@
   "env": {
     "JAVA_OPTS": "-Xms256m -Xmx256m" ,
     "server.port": "8080" ,
-    "spring.profiles.active": "eureka1",
+    "spring.profiles.active": "eureka2",
     "eureka1.instance.hostname": "eureka1.service.consul" ,
     "eureka2.instance.hostname": "eureka2.service.consul" ,
     "eureka3.instance.hostname": "eureka3.service.consul"
