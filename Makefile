@@ -29,4 +29,29 @@ eureka:
 	docker run -d  -w /opt/omega-framework-assembly-${MAJOR_VERSION}  ${IMAGE_NAME}:${MAJOR_VERSION}  java -jar lib/omega-framework-eureka-0.1.jar
 
 
+image-eureka:
+	docker build --rm -t ${IMAGE_NAME}-eureka:${MAJOR_VERSION} omega-framework-eureka
+
+
+push-eureka:
+	docker tag ${IMAGE_NAME}-eureka:${MAJOR_VERSION} ${IMAGE_NAME}-eureka:${MAJOR_VERSION}-${GIT_VERSION}
+	docker tag ${IMAGE_NAME}-eureka:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}-eureka:${MAJOR_VERSION}
+	docker tag ${IMAGE_NAME}-eureka:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}-eureka:${MAJOR_VERSION}-${GIT_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}-eureka:${MAJOR_VERSION}-${GIT_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}-eureka:${MAJOR_VERSION}
+
+
+
+
+image-configserver:
+	docker build --rm -t ${IMAGE_NAME}-configserver:${MAJOR_VERSION} omega-framework-configserver
+
+
+push-configserver:
+	docker tag ${IMAGE_NAME}-configserver:${MAJOR_VERSION} ${IMAGE_NAME}-configserver:${MAJOR_VERSION}-${GIT_VERSION}
+	docker tag ${IMAGE_NAME}-configserver:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}-configserver:${MAJOR_VERSION}
+	docker tag ${IMAGE_NAME}-configserver:${MAJOR_VERSION} ${REGISTRY}/${IMAGE_NAME}-configserver:${MAJOR_VERSION}-${GIT_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}-configserver:${MAJOR_VERSION}-${GIT_VERSION}
+	docker push ${REGISTRY}/${IMAGE_NAME}-configserver:${MAJOR_VERSION}
+
 .PHONY: build image push

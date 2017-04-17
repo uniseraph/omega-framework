@@ -1,6 +1,5 @@
 {
   "id": "/configserver",
-  "cmd": "java ${JAVA_OPTS}  -Djava.security.egd=file:/dev/./urandom -jar lib/omega-framework-configserver-0.1.jar  ",
   "cpus": 0.25,
   "mem": 384,
   "disk": 0,
@@ -12,7 +11,7 @@
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework:0.1",
+      "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework-configserver:0.1",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -25,7 +24,7 @@
       ],
       "privileged": false,
       "parameters": [],
-      "forcePullImage": false
+      "forcePullImage": true
     }
   },
   "healthChecks": [

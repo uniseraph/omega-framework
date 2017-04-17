@@ -5,6 +5,7 @@
 
 function cleanup() {
 
+    echo "trap sigterm"
     curl --connect-timeout 1 -fsSL -X POST http://localhost:8080/shutdown
 
 }
