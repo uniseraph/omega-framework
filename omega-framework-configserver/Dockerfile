@@ -6,4 +6,4 @@ VOLUME /opt/omega-framework/config-repo
 
 WORKDIR /opt/omega-framework
 
-ENTRYPOINT ["/usr/bin/java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom  -jar  lib/omega-framework-configserver-0.1.jar $*"]
+CMD ["/usr/bin/java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom  -jar  lib/omega-framework-configserver-0.1.jar $*"]
