@@ -83,14 +83,6 @@ sh -x pub-eureka.sh
 
 ## 发布configserver
 
-在native目录下执行：
-```
-sh -x pub-configserver.sh
-```
-发布configserver集群服务。
-
-## 更新配置文件
-
 SVN上为每个环境（测试、生产）准备好一个目录，内部存放各个模块的配置文件，命名规则：模块-${profile}.yml，例如：
 ```
 omega-demo-service-test.yml
@@ -99,9 +91,9 @@ omega-demo-service-test.yml
 
 在native目录下执行：
 ```
-sh -x pub-conf.sh test
+sh -x pub-configserver.sh test
 ```
-更新集群配置文件，并通知所有微服务。
+发布configserver集群服务，并通知所有微服务。
 
 ## 发布其它omega-framework模块
 
