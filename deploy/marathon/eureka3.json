@@ -1,6 +1,5 @@
 {
   "id": "eureka3",
-  "cmd": "/usr/bin/java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom  -jar  lib/omega-framework-eureka-0.1.jar $*",
   "cpus": 0.25,
   "mem": 384,
   "disk": 0,

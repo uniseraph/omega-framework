@@ -16,7 +16,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:${user.dir}/config-repo
+          search-locations: classpath:/config-repo
 
 endpoints:
   shutdown:

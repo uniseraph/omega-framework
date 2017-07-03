@@ -9,7 +9,10 @@
   ],
   "container": {
     "type": "DOCKER",
-    "volumes": [],
+    "volumes": [
+      { "containerPath": "/opt/omega-framework/config-repo", "hostPath": "config-repo", "mode": "RW" },
+      { "containerPath": "config-repo", "mode": "RW", "persistent": { "size": 32 } }
+    ],
     "docker": {
       "image": "registry.cn-hangzhou.aliyuncs.com/omega-reg/omega-framework-configserver:0.1",
       "network": "BRIDGE",
@@ -47,5 +50,6 @@
     "server.port": "8080" ,
     "spring.rabbitmq.host": "rabbitmq.service.consul",
     "eureka.client.serviceUrl.defaultZone": "http://eureka1.service.consul:8080/eureka/,http://eureka2.service.consul:8080/eureka/,http://eureka3.service.consul:8080/eureka/"
-  }
+  },
+  "residency": { "taskLostBehavior": "WAIT_FOREVER" }
 }
