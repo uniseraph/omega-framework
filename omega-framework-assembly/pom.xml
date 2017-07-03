@@ -8,7 +8,7 @@
     </parent>
     <groupId>com.omega.framework</groupId>
     <artifactId>omega-framework-assembly</artifactId>
-    <version>0.1</version>
+    <version>0.1.1</version>
     <packaging>pom</packaging>
 
 
