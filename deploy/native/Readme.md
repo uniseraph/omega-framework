@@ -93,7 +93,7 @@ omega-demo-service-test.yml
 ```
 sh -x pub-configserver.sh test
 ```
-发布configserver集群服务，并通知所有微服务。
+发布configserver集群服务，并通知所有微服务（refresh）。
 
 ## 发布其它omega-framework模块
 
