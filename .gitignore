@@ -9,7 +9,9 @@
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
-
+.idea/encodings.xml
+.idea/modules.xml
+deploy/native/binary/jdk-8u121-linux-x64.rpm
 # Sensitive or high-churn files:
 .idea/dataSources.ids
 .idea/dataSources.xml
