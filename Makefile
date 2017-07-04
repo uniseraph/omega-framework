@@ -11,6 +11,8 @@ REGISTRY   = registry.cn-hangzhou.aliyuncs.com
 
 build:
 	mvn clean package -Dmaven.test.skip=true
+	cp omega-framework-assembly/target/omega-framework-assembly-0.1-bin.tar.gz omega-framework-assembly/target/omega-framework-assembly-0.1-${GIT_VERSION}-bin.tar.gz
+
 
 image:
 	docker build --rm -t ${IMAGE_NAME}:${MAJOR_VERSION} omega-framework-assembly

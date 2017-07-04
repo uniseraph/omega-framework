@@ -16,7 +16,9 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config-repo
+          search-locations: classpath:/config
+        encrypt:
+          enabled: false
 
 endpoints:
   shutdown:
