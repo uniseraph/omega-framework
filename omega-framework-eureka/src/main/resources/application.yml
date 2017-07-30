@@ -12,6 +12,10 @@ endpoints:
     sensitive: false
     enabled: true
 
+management:
+  security:
+    enabled: false
+
 logging:
   path: /var/log/omega-framework
   level:
