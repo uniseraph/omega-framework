@@ -1,4 +1,4 @@
-FROM  openjdk:8-alpine
+FROM  registry.cn-hangzhou.aliyuncs.com/zanecloud/java:8-jce
 
 RUN mkdir -p /opt/omega-framework/lib
 ADD target/omega-framework-configserver-0.1.jar /opt/omega-framework/lib
