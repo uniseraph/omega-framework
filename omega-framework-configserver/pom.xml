@@ -16,6 +16,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <start-class>com.omega.framework.application.ConfigServerApplication</start-class>
   </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-consul-dependencies</artifactId>
+        <version>1.2.1.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -35,11 +46,7 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka</artifactId>
+      <artifactId>spring-cloud-starter-consul-discovery</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

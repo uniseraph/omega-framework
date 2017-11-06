@@ -1,7 +1,5 @@
-eureka:
-  instance:
-    preferIpAddress: true
-    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
